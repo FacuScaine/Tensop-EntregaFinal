@@ -1,0 +1,14 @@
+footer {
+    grid-area: footer;
+    font-size: 11px;
+    background: linear-gradient(to top, #22577A 50%, #C7F9CC);
+    padding-top: 10px;
+    border: 5px solid #22577A;
+    border-top: none;
+    color: #57CC99;
+    display: flex;
+    justify-content: center;
+  }
+  footer p {
+    margin-bottom: 0;
+  }

@@ -1,0 +1,24 @@
+main .imagenes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin: 10px;
+  }
+  main .imagenes img {
+    width: 80%;
+    border: 5px solid #22577A;
+    border-radius: 50px;
+  }
+
+  @media screen and (min-width: 600px) {
+    main .imagenes {
+      flex-direction: row;
+      justify-content: space-around;
+      padding: 10px;
+    }
+    main .imagenes img {
+      width: 30%;
+      margin: 15px;
+    }
+  }

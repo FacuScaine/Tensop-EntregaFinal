@@ -1,0 +1,33 @@
+main .nosotros {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+main .nosotros img {
+    width: 100%;
+    border: 5px solid black;
+    height: auto;
+}
+
+main .nosotros p {
+    text-align: center;
+    margin: 5px;
+}
+
+@media screen and (min-width: 1024px) {
+    main .nosotros {
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    main .nosotros img {
+        width: 50%;
+    }
+
+    main .nosotros p {
+        width: 40%;
+        font-size: 29px;
+    }
+}

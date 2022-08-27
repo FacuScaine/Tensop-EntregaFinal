@@ -1,0 +1,29 @@
+nav {
+  background: linear-gradient(to bottom, #22577A 60%, #57CC99);
+}
+
+nav ul {
+  margin: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+nav ul li {
+  margin: 30px;
+}
+
+/* nav ul li a {
+  border: 5px double #38A3A5;
+  border-radius: 30px;
+  padding: 7px !important;
+} */
+
+nav ul li:hover {
+  transform: scale(1.2, 1.2);
+  transition: all 0.6s;
+}
+
+.nav-link{
+  font-size: 22px !important;
+}
