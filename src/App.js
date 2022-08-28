@@ -9,6 +9,7 @@ import Clientes from './components/Clientes/Clientes.jsx';
 import Contacto from './components/Contacto/Contacto.jsx';
 import Empresa from './components/Empresa/Empresa.jsx';
 import ItemListContainer from './components/CartLogica/ItemListContainer/ItemListContainer';
+import ItemDetailContainer from './components/CartLogica/ItemDetailContainer/ItemDetailContainer';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path='/contacto' element={<Contacto></Contacto>}></Route>
           <Route path='/empresa' element={<Empresa></Empresa>}></Route>
           <Route path='/productos' element={<ItemListContainer></ItemListContainer>}></Route>
+          <Route path='/detalle/:ID' element={<ItemDetailContainer></ItemDetailContainer>}></Route>
         </Routes>
         <Footer></Footer>
       </BrowserRouter>

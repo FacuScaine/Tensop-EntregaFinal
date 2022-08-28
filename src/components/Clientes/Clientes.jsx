@@ -9,7 +9,7 @@ function Clientes() {
             <h1>Clientes</h1>
 
             <main>
-                <div class="imagenes">
+                <div className="imagenes">
                     <img src={mc} alt="McDonald"></img>
                     <img src={ypf} alt="YPF"></img>
                     <img src={ml} alt="MercadoLibre"></img>
