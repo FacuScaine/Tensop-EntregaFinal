@@ -1,6 +1,7 @@
-ks
+import {Link} from 'react-router-dom';
+import ItemCount from '../ItemCount/ItemCount';
 
-function ItemDetail{ data }) {
+function ItemDetail({ data }) {
 
     const onAdd = (cantidad) => {
         console.log("Compraste " + cantidad)

@@ -18,7 +18,7 @@ function ItemDetailContainer() {
     }, [categoriaID])
 
     return (
-        <ItemDetail></ItemDetail>
+        <ItemDetail data={data}></ItemDetail>
     )
 };
 
