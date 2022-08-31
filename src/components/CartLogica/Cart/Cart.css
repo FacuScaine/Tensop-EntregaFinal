@@ -10,3 +10,10 @@
     gap: 50px;
     padding: 50px;
 }
+
+.end{
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    padding: 50px;
+}

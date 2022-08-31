@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import { addDoc, collection, getFirestore } from 'firebase/firestore';
 import { useCartContext } from "../../../context/CartContext.jsx";
 import { Link } from 'react-router-dom'
@@ -7,6 +8,7 @@ import './Cart.css'
 
 export const Cart = () => {
 
+    const [endCart, setEndCart] = useState(false)
     const { cart, totalPrice } = useCartContext();
 
     const order = {
@@ -16,11 +18,12 @@ export const Cart = () => {
             telefono: '11 36013722',
             direccion: 'fragata hercules 1579'
         },
-        items: cart.map(product => ({ id: product.id, titulo: product.title, precio: product.price })),
+        items: cart.map(product => ({ id: product.id,titulo: product.title, cantidad: product.cantidad, precio: product.price })),
         total: totalPrice()
     }
 
     const emitirCompra = () => {
+        setEndCart(true)
         const db = getFirestore();
         const orderCollection = collection(db, 'orders');
         addDoc(orderCollection, order)
@@ -35,6 +38,17 @@ export const Cart = () => {
             <button type="button" className="btn btn-primary"><Link className="link" to={'/productos'}>Ir a comprar</Link></button>
         </main>
         </>
+    }
+
+    if (endCart){
+        return(
+            <>
+            <h1>Cart</h1>
+            <main className="end">
+                <h2>Orden Creada Corrctamente</h2>
+            </main>
+            </>
+        )
     }
 
     return (
