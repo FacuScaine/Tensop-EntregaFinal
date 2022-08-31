@@ -1,11 +1,11 @@
 import Item from "../Item/Item.jsx";
-import { useEffect, useState } from "react";
-import {getFirestore , collection , getDocs, query, where} from 'firebase/firestore';
+import { useEffect, useState} from "react";
 import { useParams } from "react-router-dom";
+import {getFirestore , collection , getDocs, query, where} from 'firebase/firestore';
 
-function ItemListContainer () {
+function ItemListContainer() {
 
-    const [data,setData] = useState([]);
+    const [data, setData] = useState([]);
     const {categoriaID} = useParams();
 
     useEffect(() => {
@@ -22,7 +22,7 @@ function ItemListContainer () {
         }
     },[categoriaID])
 
-    return(
+    return (
         data.map(product => <Item key={product.id} data={product}/>)
     )
 };

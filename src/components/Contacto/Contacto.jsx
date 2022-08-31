@@ -3,7 +3,8 @@ import './Contacto.css';
 function Contacto() {
     return (
         <>
-            <h1>Contacto</h1><main className="contacto">
+            <h1>Contacto</h1>
+            <main className="contacto">
                 <form action="https://formsubmit.co/facusca@gmail.com" method="POST">
                     <div>
                         <label htmlFor="nombre">Nombre: </label>

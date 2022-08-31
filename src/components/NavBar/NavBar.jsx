@@ -36,8 +36,8 @@ function NavBar() {
                                     <span className="visually-hidden">Toggle Dropdown</span>
                                 </button>
                                 <ul className="dropdown-menu">
-                                    <li><NavLink className="nav-link" to="/empresa">Domesticos</NavLink></li>
-                                    <li><NavLink className="nav-link" to="/empresa">Industriales</NavLink></li>
+                                    <li><NavLink className="nav-link" to="/productos/domestico">Domesticos</NavLink></li>
+                                    <li><NavLink className="nav-link" to="/productos/industrial">Industriales</NavLink></li>
                                 </ul>
                             </div>
                         </li>

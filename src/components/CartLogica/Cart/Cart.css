@@ -1,0 +1,12 @@
+.total{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 170px;
+}
+
+.noCart{
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    padding: 50px;
+}

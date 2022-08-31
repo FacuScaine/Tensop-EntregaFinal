@@ -56,10 +56,10 @@ main .productoDes img {
     height: auto;
 }
 
-.carousel-inner img {
+/* .carousel-inner img {
     width: 100%;
     max-height: 460px;
-}
+} */
 
 @media screen and (min-width: 600px) {
     main .productoDes {

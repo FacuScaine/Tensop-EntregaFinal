@@ -11,8 +11,6 @@ function Home() {
             <h1>Home</h1>
 
             <main>
-
-
                 <div className="info">
                     <h2>Te Contamos Un Poco</h2>
                     <p>Estamos trabajando para traer los mejores productos calidad/precio que se va a poder encontrar en el mercado

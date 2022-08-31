@@ -2,7 +2,7 @@ import './Item.css';
 import { Link } from "react-router-dom";
 
 
-function Item({ data }) {
+export const Item = ({ data }) => {
 
     return (
         <>

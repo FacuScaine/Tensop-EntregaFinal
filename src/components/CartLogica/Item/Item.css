@@ -4,8 +4,7 @@
     align-items: center;
     gap: 10px;
     padding: 10px;
-  }
-  
+  }  
   .producto {
     background: radial-gradient(#38A3A5, #22577A);
     border-radius: 50px;
@@ -16,6 +15,10 @@
     flex-direction: column;
     text-align: center;
     align-items: center;
+    text-decoration: none;
+  }
+  .producto h5{
+    color: black;
   }
   .producto img {
     width: 100%;
