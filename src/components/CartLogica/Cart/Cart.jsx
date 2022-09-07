@@ -1,61 +1,56 @@
 import React from "react";
-import { useState } from "react";
 import { addDoc, collection, getFirestore } from 'firebase/firestore';
 import { useCartContext } from "../../../context/CartContext.jsx";
-import { Link } from 'react-router-dom'
+import { useState } from "react";
+// import { Link } from 'react-router-dom';
 import ItemCart from "../ItemCart/ItemCart.jsx";
+import CartState from "../CartStates/CartStates.jsx";
 import './Cart.css'
+import { useEffect } from "react";
 
 export const Cart = () => {
-
     const [endCart, setEndCart] = useState(false)
+    const [cartOn, setCartOn] = useState(false)
     const { cart, totalPrice } = useCartContext();
 
-    const order = {
-        cliente: {
-            nombre: 'Facundo',
-            email: 'facusca@gmail.com',
-            telefono: '11 36013722',
-            direccion: 'fragata hercules 1579'
-        },
-        items: cart.map(product => ({ id: product.id,titulo: product.title, cantidad: product.cantidad, precio: product.price })),
-        total: totalPrice()
+    useEffect(() =>{
+            if (cart.length === 0){
+                setCartOn(true)
+            }
+    },[cart.length])
+
+    const order = (nombre, email, telefono, direccion) => {
+        let orden = {
+            cliente: {
+                nombre: nombre,
+                email: email,
+                telefono: telefono,
+                direccion: direccion
+            },
+            items: cart.map(product => ({ id: product.id, titulo: product.title, cantidad: product.cantidad, precio: product.price })),
+            total: totalPrice()
+        }
+        emitirCompra(orden)
     }
 
-    const emitirCompra = () => {
+    const emitirCompra = (Orden) => {
         setEndCart(true)
+        setCartOn(true)
         const db = getFirestore();
         const orderCollection = collection(db, 'orders');
-        addDoc(orderCollection, order)
+        addDoc(orderCollection, Orden)
             .then(({ id }) => console.log(id))
-    }
-
-    if (cart.length === 0) {
-        return <>
-        <h1>Cart</h1>
-        <main className="noCart">
-            <h2>No hay elementos en el carrito!</h2>
-            <button type="button" className="btn btn-primary"><Link className="link" to={'/productos'}>Ir a comprar</Link></button>
-        </main>
-        </>
-    }
-
-    if (endCart){
-        return(
-            <>
-            <h1>Cart</h1>
-            <main className="end">
-                <h2>Orden Creada Corrctamente</h2>
-            </main>
-            </>
-        )
     }
 
     return (
         <>
-        <h1>Cart</h1>
+            <h1>Cart</h1>
             <main>
-                <table className="table">
+                {
+                    (cartOn) ? 
+                    <CartState endCart={endCart}></CartState> 
+                    : <div>
+                    <table className="table">
                     <thead>
                         <tr>
                             <th scope="col">Producto</th>
@@ -65,18 +60,38 @@ export const Cart = () => {
                             <th scope="col">Total</th>
                         </tr>
                     </thead>
-                </table>
-                {
+                    </table>
+                    {
                     cart.map(product => <ItemCart key={product.id} product={product}></ItemCart>)
-                }
-                <div className="total">
+                    }
+                    <div className="total">
                     <h3>Total:${totalPrice()}</h3>
+                    </div>
+                
+                    <form onSubmit={
+                    ev => {
+                        ev.preventDefault();
+                        const nombre = ev.target.nombre.value
+                        const email = ev.target.email.value
+                        const telefono = ev.target.telefono.value
+                        const direccion = ev.target.direccion.value
+                        order(nombre, email, telefono, direccion)
+                    }
+                    }>
+                    <input type="text" id="nombre" required />
+                    <input type="email" id="email" required />
+                    <input type="number" id="telefono" required />
+                    <input type="text" id="direccion" required />
+                    <button className="btn btn-success" type="submit">Emitir Compra</button>
+                
+                    </form> 
+                
                 </div>
-                <button onClick={emitirCompra} type="button" className="btn btn-success">Emitir Compra</button>
-
+                }
             </main>
         </>
     )
 };
 
 export default Cart
+
