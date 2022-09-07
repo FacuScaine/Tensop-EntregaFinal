@@ -78,10 +78,10 @@ export const Cart = () => {
                         order(nombre, email, telefono, direccion)
                     }
                     }>
-                    <input type="text" id="nombre" required />
-                    <input type="email" id="email" required />
-                    <input type="number" id="telefono" required />
-                    <input type="text" id="direccion" required />
+                    <input type="text" id="nombre" required placeholder="Ingrese su Nombre"/>
+                    <input type="email" id="email" required placeholder="Ingrese su Email"/>
+                    <input type="number" id="telefono" required placeholder="Ingrese su Telefono"/>
+                    <input type="text" id="direccion" required placeholder="Ingrese su Direccion"/>
                     <button className="btn btn-success" type="submit">Emitir Compra</button>
                 
                     </form> 
